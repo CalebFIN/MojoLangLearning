@@ -1,9 +1,8 @@
-# main.mojo
-
 fn calculate_payoff_time(principal: Float64, annual_interest_rate: Float64, monthly_payment: Float64) -> Int:
-    monthly_interest_rate = (annual_interest_rate / 100.0) / 12.0
-    current_balance = principal
-    months = 0
+    var monthly_interest_rate: Float64 = (annual_interest_rate / 100.0) / 12.0
+    var current_balance: Float64 = principal
+    var months: Int = 0
+    var interest: Float64 = 0.0
 
     # Check if the payment is sufficient to cover the interest
     if monthly_payment <= current_balance * monthly_interest_rate:
@@ -24,15 +23,15 @@ fn calculate_payoff_time(principal: Float64, annual_interest_rate: Float64, mont
 
 fn main():
     print("Debt Payoff Timeline Calculator")
-    
-    principal = Float64(input("Enter the principal amount: ").strip())
-    annual_interest_rate = Float64(input("Enter the annual interest rate (as a percentage): ").strip())
-    monthly_payment = Float64(input("Enter the monthly payment: ").strip())
 
-    months = calculate_payoff_time(principal, annual_interest_rate, monthly_payment)
-    
+    # Hardcoded values for testing
+    var principal: Float64 = 10000.0  # Example principal amount
+    var annual_interest_rate: Float64 = 5.0  # Example annual interest rate as a percentage
+    var monthly_payment: Float64 = 200.0  # Example monthly payment
+
+    var months: Int = calculate_payoff_time(principal, annual_interest_rate, monthly_payment)
+
     if months > 0:
-        print(f"It will take {months} months to pay off the debt.")
+        print("It will take " + str(months) + " months to pay off the debt.")
     else:
         print("Debt cannot be paid off with the provided payment amount.")
-
