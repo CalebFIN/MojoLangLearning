@@ -25,7 +25,7 @@ fn main():
     print("Debt Payoff Timeline Calculator")
 
     # Hardcoded values for testing
-    var principal: Float64 = 10000.0  # Example principal amount
+    var principal: Float64 = 100000000000.0  # Example principal amount
     var annual_interest_rate: Float64 = 5.0  # Example annual interest rate as a percentage
     var monthly_payment: Float64 = 200.0  # Example monthly payment
 
